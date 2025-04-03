@@ -88,11 +88,10 @@ public class CharacterControls : MonoBehaviour {
 					rb.AddForce(moveDir * 0.15f, ForceMode.VelocityChange);
 					//Debug.Log(rb.velocity.magnitude);
 				}
-
 				// Jump
 				if (IsGrounded() && Input.GetButton("Jump"))
 				{
-					Jump();
+					rb.velocity = new Vector3(velocity.x, CalculateJumpVerticalSpeed(), velocity.z);
 				}
 			}
 			else
@@ -120,10 +119,6 @@ public class CharacterControls : MonoBehaviour {
 		}
 		// We apply gravity manually for more tuning control
 		rb.AddForce(new Vector3(0, -gravity * GetComponent<Rigidbody>().mass, 0));
-	}
-
-	private void Jump(){
-		rb.velocity = new Vector3(velocity.x, CalculateJumpVerticalSpeed(), velocity.z);
 	}
 	private void Update()
 	{
