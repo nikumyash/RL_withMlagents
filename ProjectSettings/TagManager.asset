@@ -8,6 +8,8 @@ TagManager:
   - Goal
   - Rotator
   - Ground
+  - Coin
+  - Agent
   layers:
   - Default
   - TransparentFX
