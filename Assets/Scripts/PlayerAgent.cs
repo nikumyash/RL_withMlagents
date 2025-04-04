@@ -134,11 +134,11 @@ public class PlayerAgent : Agent
             EndEpisode();
         }
         if(collision.gameObject.CompareTag("Goal")){
-            AddReward(2f);
+            AddReward(1f);
             EndEpisode();
         }
         if(collision.gameObject.CompareTag("Rotator")){
-            AddReward(-0.2f);
+            AddReward(-0.01f);
         }
     }
     void OnTriggerEnter(Collider other)
@@ -147,7 +147,7 @@ public class PlayerAgent : Agent
         {
             Debug.Log("Coin");
             Destroy(other.gameObject);
-            AddReward(1f);
+            AddReward(0.5f);
         }
     }
 }
